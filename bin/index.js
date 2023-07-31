@@ -14,8 +14,8 @@ import inquirer from "inquirer";
 inquirer
   .prompt([
     /* Pass your questions in here */
-    { type: "input", message: "What?", name: "question1"},
-    { type: "input", message: "This is question 2?", name: "question2"},
+    { type: "input", message: "Living purposefully to me means...", name: "living-purposefully-means"},
+    { type: "input", message: "If I bring 5 percent more purposefulness to my life today...", name: "5-percent-more-purposefulness"},
   ])
   .then((answers) => {
     // Use user feedback for... whatever!!
@@ -23,7 +23,7 @@ inquirer
     const date = new Date()
     console.log(date)
     console.log(answers.question1)
-    console.log(chalk.blue("Stay mindful!"));
+    console.log(chalk.cyan("Stay mindful!"));
   })
   .catch((error) => {
     if (error.isTtyError) {
