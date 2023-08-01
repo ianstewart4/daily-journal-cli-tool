@@ -6,4 +6,4 @@ My goal is to create a series of prompts. One set for the morning to help set in
 
 ## Features
 
-[ ] Users will be able to select which prompts to use.
+- [ ] Allow users to select which prompts to use.
