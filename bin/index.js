@@ -10,19 +10,37 @@ import inquirer from "inquirer";
 // For each question if user adds input it will remain on the same question
 // To move to the next question user can hit enter
 
+const questions = [
+    "Living purposefully to me means",
+    "If I bring 5 percent more purposefulness to my life today",
+    "What are three things you're grateful for today",
+    ""
+]
+
+const prompts = [
+    ...questions.map(question => {
+        return {type: "input", message: question + "...", name: question.replaceAll(' ', '-')}
+    })
+]
+
+figlet("", (err, data) => {
+    if (err) {
+      console.log("Sorry, something went wrong");
+      console.dir(err);
+      return;
+    }
+  
+    console.log(data);
+  });
 
 inquirer
-  .prompt([
-    /* Pass your questions in here */
-    { type: "input", message: "Living purposefully to me means...", name: "living-purposefully-means"},
-    { type: "input", message: "If I bring 5 percent more purposefulness to my life today...", name: "5-percent-more-purposefulness"},
-  ])
+  .prompt(prompts)
   .then((answers) => {
     // Use user feedback for... whatever!!
     // Add to a file of some kind?
     const date = new Date()
     console.log(date)
-    console.log(answers.question1)
+    console.log(answers)
     console.log(chalk.cyan("Stay mindful!"));
   })
   .catch((error) => {
@@ -33,15 +51,7 @@ inquirer
     }
   });
 
-// figlet(":-)", (err, data) => {
-//   if (err) {
-//     console.log("Sorry, something went wrong");
-//     console.dir(err);
-//     return;
-//   }
 
-//   console.log(data);
-// });
 
 
 // SENTENCE STEMS
